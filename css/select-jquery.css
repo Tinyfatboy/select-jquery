@@ -1,0 +1,66 @@
+.select-demo{
+    display: inline-block;
+    position: relative;
+    margin-left: 20px;
+  }
+  
+  .select-demo:hover{
+    cursor: pointer;
+  }
+  
+  .select-demo::after{
+      content: '';
+      position: absolute;
+      top: 11px;
+      right: 8px;
+      display: block;
+      border: 6px solid transparent;
+      border-top-color: blue;
+  }
+  
+  .select_input{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    color: #555;
+    padding: 2px 5px;
+  }
+
+  .select_input:focus{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+  }
+
+  .select_input::-moz-placeholder {
+    color: #999;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  .select_input:-ms-input-placeholder {
+    color: #999;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  .select_input::-webkit-input-placeholder {
+    color: #999;
+    font-size: 16px;
+    font-weight: normal;
+  }
+
+  .dropdown{
+    border: 1px solid #ccc;
+    margin-top: 0;
+    padding-left: 0;
+  }
+
+  .dropdown > li{
+    list-style: none;
+    padding-left: 5px;
+  }
+
+  .dropdown > li:hover{
+    background-color: #66afe9
+  }
+  
