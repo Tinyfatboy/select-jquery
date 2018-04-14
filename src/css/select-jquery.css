@@ -1,4 +1,8 @@
-.select-demo{
+  *{
+    box-sizing: border-box;
+  }
+  
+  .select-demo{
     display: inline-block;
     position: relative;
     margin-left: 20px;
@@ -54,6 +58,11 @@
     border: 1px solid #ccc;
     margin-top: 0;
     padding-left: 0;
+    max-height: 300px;
+    width: calc(100% - 2px);
+    overflow-y: auto;
+    position: absolute;
+    background-color: white;
   }
 
   .dropdown > li{

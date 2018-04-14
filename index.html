@@ -1,26 +1,77 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-Hans">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>select-jquery</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SignUp and Login</title>
 
-    <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="css/main.css">
-
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="build/main.css">
 </head>
 
 <body>
-    <div class="select-demo"></div>
+    <div class="wrapper">
+        <div class="functionArea">
+            <ul class="nav nav-pills">
+                <li><a href="#signUp" data-toggle="tab">写入</a></li>
+                <li><a href="#email" data-toggle="tab">Email</a></li>
+                <li class="active"><a href="#login" data-toggle="tab">读取</a></li>
+            </ul>
+            <div class="tab-content">
+                <img src="img/22.jpg" alt="" class="signLogo">
+                <div class="signUp tab-pane fade" id="signUp">
+                    <div class="Slogen">欢迎写入数据库</div>
+                    <span class="error signError"></span>
+                    <form name="signUp" action="/signUp" method="post">
+                        <div>
+                            <label>
+                                <input type="text" name="storedata" placeholder="Store" maxlength="30">
+                            </label>
+                        </div>
+                        <div class="buttonSign">
+                            <input type="submit" value="Write">
+                        </div>
+                    </form>
+                </div>
+                <div class="email tab-pane fade" id="email">
+                    <div class="Slogen">从数据库查找Email</div>
+                    <span class="error"></span>
+                    <form name="email" action="/email" method="post">
+                        <div>
+                            <label>
+                                <input type="text" disabled="disabled" name="findemail" placeholder="Find Email">
+                            </label>
+                        </div>
+                        <div class="buttonEmail">
+                            <input type="submit" value="Find Email">
+                        </div>
+                    </form>
+                </div>
+                <div class="login tab-pane fade in active" id="login">
+                    <div class="Slogen">欢迎读取数据库</div>
+                    <span class="error loginError"></span>
+                    <form name="login" action="/login" method="post">
+                        <div>
+                            <label>
+                                <input type="text" name="searchdata" placeholder="Search" maxlength="30">
+                            </label>
+                        </div>
+                        <div class="buttonLogin">
+                            <input type="submit" value="Search">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+        </div>
+    </div>
 
-    <!-- <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-
-    <script src="js/main.js"></script>
+    <script src="JS/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="JS/main.js"></script>
 </body>
 
 </html>

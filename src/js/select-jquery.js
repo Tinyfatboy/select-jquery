@@ -1,6 +1,6 @@
 //select component by Tianyi
 
-window.jquerySelect = function (arrayList) { 
+window.jquerySelect = function (arrayList) {
     var $select = $('.select-demo')
     var $input = $("<input type='text'>")
     var $ul = $('<ul></ul>')
@@ -17,10 +17,10 @@ window.jquerySelect = function (arrayList) {
     $select.on('click', 'ul', function (e) {
         var elem = e.target
         var parent = document.querySelector('ul.dropdown')
-        while(elem.tagName !== 'LI'){
-            if(elem === parent){
-              elem = null
-              break
+        while (elem.tagName !== 'LI') {
+            if (elem === parent) {
+                elem = null
+                break
             }
             elem = elem.parentNode
         }
@@ -35,7 +35,7 @@ window.jquerySelect = function (arrayList) {
         if ($select.find('.dropdown').length === 0) {
             $select.append($ul)
         } else {
-            setTimeout(function(){
+            setTimeout(function () {
                 $('.dropdown').remove()
             }, 0)
         }
@@ -45,52 +45,85 @@ window.jquerySelect = function (arrayList) {
         $select.append($ul)
     })
 
-    $input.blur(function () { 
-        if($input.val().trim() === ''){
-            setTimeout(function(){
+    $input.blur(function () {
+        if ($input.val().trim() === '') {
+            setTimeout(function () {
                 $('.dropdown').remove()
             }, 250)
         }
-     })
+    })
 
     $input.on('click', function (e) {
         e.stopPropagation()
     })
 
+    //异步回调数据
+    var timer = undefined
     $input.on('input', function (e) {
         var $input = $(e.currentTarget)
         var value = $input.val().trim()
-        
-        $('ul.dropdown').empty()
-        var filterArray = search(value)
-        filterArray.map(function (elem, i) {
-            var remain = elem.substr(value.length)
-            var $value = $("<span style='color: red;'>" + value + "</span>")
-            var $span = $('<span>' + remain + '</span>' )
-            var $li = $("<li></li>")
-            $li.append($value).append($span)
-            $li.appendTo($ul)
-        })
+
+        if(timer){
+            clearTimeout(timer)
+        }
+
+        timer = setTimeout(function () { 
+            search(value).then((result) => {
+                timer = undefined
+
+                $('ul.dropdown').empty()
+                result.map(function (elem, i) {
+                    var remain = elem.substr(value.length)
+                    var $value = $("<span style='color: red;'>" + value + "</span>")
+                    var $span = $('<span>' + remain + '</span>')
+                    var $li = $("<li></li>")
+                    $li.append($value).append($span)
+                    $li.appendTo($ul)
+                })
+            })
+         }, 200)
     })
 
     function search(keyword) {
-        var result = arrayList.filter(function (item) {
-            return item.indexOf(keyword) === 0
-        })
-        return result
-    }   
- }
- var array = [
-     'aaaa',
-     'bbbsda',
-     'qwfsd',
-     'assdedzxc',
-     'ssdefdxdvcfr',
-     'ssa',
-     'aaaxx',
-     'xxasd',
-     'sddfs',
-     'xxxaasdg'
- ]
+        return new Promise((resolve, reject) => {
+            var result = arrayList.filter(function (item) {
+                return item.indexOf(keyword) === 0
+            })
 
- jquerySelect(array)
+            setTimeout(function () {
+                resolve(result)
+            }, (Math.random() * 200 + 100))
+        })
+    }
+}
+var array = [
+    'aaaa',
+    'bbbsda',
+    'qwfsd',
+    'assdedzxc',
+    'ssdefdxdvcfr',
+    'ssa',
+    'aaaxx',
+    'xxasd',
+    'sddfs',
+    'xxxaasdg',
+    'aaaa',
+    'bbbsda',
+    'qwfsd',
+    'assdedzxc',
+    'ssdefdxdvcfr',
+    'ssa',
+    'aaaxx',
+    'xxasd',
+    'bbbsda',
+    'qwfsd',
+    'assdedzxc',
+    'ssdefdxdvcfr',
+    'ssa',
+    'aaaxx',
+    'xxasd',
+    'sddfs',
+    'xxxaasdg'
+]
+
+jquerySelect(array)
