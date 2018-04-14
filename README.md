@@ -31,7 +31,13 @@ $(function(){
 $('.select-demo > input').val()
 ~~~
 
+### demo使用方法
 
+- 从github上download或clone项目
+- 打开命令行，进入项目目录: cd select-jquery-master
+- 输入命令运行本地服务器: npm start 或node server.js 8888
+- 按照提示打开: <http://localhost:8888/>
+- 说明: 展示页面，db.json为模拟的db数据库，可以通过前台写入字符串到json文件，下拉框组件展示所以json文件中数据，支持搜索功能
 
 
 
