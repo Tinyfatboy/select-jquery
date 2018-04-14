@@ -5,23 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SignUp and Login</title>
+    <title>select-demo</title>
 
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="src/css/select-jquery.css">
 </head>
 
 <body>
     <div class="wrapper">
         <div class="functionArea">
-            <div class="tab-content">
+            <div class="content">
                 <img src="img/22.jpg" alt="" class="signLogo">
-                <div class="signUp tab-pane fade" id="signUp">
+                <div class="signUp" id="signUp">
                     <div class="Slogen">欢迎写入数据库</div>
-                    <span class="error signError"></span>
                     <form name="signUp" action="/signUp" method="post">
                         <div>
                             <label>
-                                <input type="text" name="storedata" placeholder="Store" maxlength="30">
+                                <input type="text" name="storedata" placeholder="input a value" maxlength="30">
                             </label>
                         </div>
                         <div class="buttonSign">
@@ -31,11 +31,15 @@
                 </div>
             </div>
         </div>
-        <div class="slide">
+        <div class="divider"></div>
+        <div class="select-content">
+            <div class="Slogen">欢迎查询数据库</div>
+            <div class="select-demo"></div>
         </div>
     </div>
 
     <script src="JS/jquery.min.js"></script>
+    <script src="src/js/select-jquery.js"></script>
     <script src="JS/main.js"></script>
 </body>
 

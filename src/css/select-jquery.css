@@ -1,7 +1,3 @@
-  *{
-    box-sizing: border-box;
-  }
-  
   .select-demo{
     display: inline-block;
     position: relative;
