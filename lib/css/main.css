@@ -137,7 +137,7 @@ input[type='submit']:focus{
 
 div.wrapper > .select-content{
     width: 450px;
-    background: url("../img/2233background2.jpg") no-repeat center;
+    background: url("../../img/2233background2.jpg") no-repeat center;
     background-size: cover;
     position: relative;
     display: -webkit-box;
