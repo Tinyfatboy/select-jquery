@@ -96,34 +96,3 @@ window.jquerySelect = function (arrayList) {
         })
     }
 }
-var array = [
-    'aaaa',
-    'bbbsda',
-    'qwfsd',
-    'assdedzxc',
-    'ssdefdxdvcfr',
-    'ssa',
-    'aaaxx',
-    'xxasd',
-    'sddfs',
-    'xxxaasdg',
-    'aaaa',
-    'bbbsda',
-    'qwfsd',
-    'assdedzxc',
-    'ssdefdxdvcfr',
-    'ssa',
-    'aaaxx',
-    'xxasd',
-    'bbbsda',
-    'qwfsd',
-    'assdedzxc',
-    'ssdefdxdvcfr',
-    'ssa',
-    'aaaxx',
-    'xxasd',
-    'sddfs',
-    'xxxaasdg'
-]
-
-jquerySelect(array)

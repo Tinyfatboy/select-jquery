@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>select-demo</title>
 
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="src/css/select-jquery.css">
+    <link rel="stylesheet" href="lib/css/main.css">
+    <link rel="stylesheet" href="lib/css/select-jquery.css">
 </head>
 
 <body>
@@ -18,13 +18,13 @@
                 <img src="img/22.jpg" alt="" class="signLogo">
                 <div class="signUp" id="signUp">
                     <div class="Slogen">欢迎写入数据库</div>
-                    <form name="signUp" action="/signUp" method="post">
+                    <form name="writeDB" action="/wirteDB" method="post">
                         <div>
                             <label>
                                 <input type="text" name="storedata" placeholder="input a value" maxlength="30">
                             </label>
                         </div>
-                        <div class="buttonSign">
+                        <div class="buttonWrite">
                             <input type="submit" value="Write">
                         </div>
                     </form>
@@ -38,9 +38,9 @@
         </div>
     </div>
 
-    <script src="JS/jquery.min.js"></script>
-    <script src="src/js/select-jquery.js"></script>
-    <script src="JS/main.js"></script>
+    <script src="lib/js/jquery.min.js"></script>
+    <script src="lib/js/select-jquery.js"></script>
+    <script src="lib/js/main.js"></script>
 </body>
 
 </html>

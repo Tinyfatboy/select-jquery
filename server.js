@@ -24,28 +24,24 @@ var server = http.createServer(function (request, response) {
     var string = fs.readFileSync('./index.html')
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
     response.end(string)
-  } else if (path === '/build/main.css') {
-    var string = fs.readFileSync('./build/main.css')
+  } else if (path === '/lib/css/main.css') {
+    var string = fs.readFileSync('./lib/css/main.css')
     response.setHeader('Content-Type', 'text/css')
     response.end(string)
-  } else if (path === '/bootstrap/css/bootstrap.min.css') {
-    var string = fs.readFileSync('./bootstrap/css/bootstrap.min.css')
+  } else if (path === '/lib/css/select-jquery.css') {
+    var string = fs.readFileSync('./lib/css/select-jquery.css')
     response.setHeader('Content-Type', 'text/css')
     response.end(string)
-  } else if (path === '/JS/jquery.min.js') {
-    var string = fs.readFileSync('./JS/jquery.min.js')
+  } else if (path === 'lib/js/jquery.min.js') {
+    var string = fs.readFileSync('./lib/js/jquery.min.js')
     response.setHeader('Content-Type', 'application/javascript')
     response.end(string)
-  } else if (path === '/bootstrap/js/bootstrap.min.js') {
-    var string = fs.readFileSync('./bootstrap/js/bootstrap.min.js')
+  } else if (path === 'lib/js/main.js') {
+    var string = fs.readFileSync('./lib/js/main.js')
     response.setHeader('Content-Type', 'application/javascript')
     response.end(string)
-  } else if (path === '/JS/main.js') {
-    var string = fs.readFileSync('./JS/main.js')
-    response.setHeader('Content-Type', 'application/javascript')
-    response.end(string)
-  } else if (path === '/JS/main.js') {
-    var string = fs.readFileSync('./JS/main.js')
+  } else if (path === '/lib/js/select-jquery.js') {
+    var string = fs.readFileSync('./lib/js/select-jquery.js')
     response.setHeader('Content-Type', 'application/javascript')
     response.end(string)
   } else if (path === '/img/22.jpg') {
@@ -60,7 +56,7 @@ var server = http.createServer(function (request, response) {
     response.writeHead(200, "Ok");
     response.write(string, "binary");
     response.end()
-  } else if (path === '/signUp' && method === 'POST') {
+  } else if (path === '/wirteDB' && method === 'POST') {
     let data = ''
     request.on('data', (postData) => {
       data += postData.toString()
@@ -74,41 +70,11 @@ var server = http.createServer(function (request, response) {
       fs.writeFileSync('./db.json', dbString2, { encoding: 'utf-8' })
       response.end(JSON.stringify(data))
     })
-  } else if (path === '/email' && method === 'POST') {
-    let data = ''
-    request.on('data', (postData) => {
-      data += postData.toString()
-    })
-    request.on('end', () => {
-      if (data === 'findEmail') {
-        let dbString = fs.readFileSync('./db.json', 'utf-8')
-        let dbObject = JSON.parse(dbString)
-        console.log(dbObject)
-
-        var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/
-        let arr = []
-        for (let i = 0; i < dbObject.length; i++) {
-          if (reg.test(dbObject[i])) {
-            arr.push(dbObject[i])
-          }
-        }
-        console.log(arr)
-        response.end(JSON.stringify(arr))
-      }
-    })
-  } else if (path === '/login' && method === 'POST') {
-    let data = ''
-    request.on('data', (postData) => {
-      data += postData.toString()
-    })
-    request.on('end', () => {
-      let dbString = fs.readFileSync('./db.json', 'utf-8')
-      let dbObject = JSON.parse(dbString)
-      let result = search(data, dbObject)
-      console.log(result)
-      response.end(JSON.stringify(result))
-
-    })
+  } else if (path === '/getData' && method === 'GET') {
+    var string = fs.readFileSync('./db.json')
+    response.setHeader('Content-Type', 'application/json')
+    response.writeHead(200, "Ok");
+    response.end(string)
   } else {
     response.statusCode = 404
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
