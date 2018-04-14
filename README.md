@@ -9,10 +9,11 @@
 ### 使用说明
 
 - 在浏览器引入js和css文件
-- 在想要引入的div上添加class='select-demo'
+- 在想要引入的div上添加class='select-demo',div添加input子元素
 
 ~~~html
 <div class='select-demo'>
+    <input type="text">
 </div>
 ~~~
 

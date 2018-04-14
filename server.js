@@ -33,11 +33,11 @@ var server = http.createServer(function (request, response) {
     response.setHeader('Content-Type', 'text/css')
     response.end(string)
   } else if (path === '/lib/js/jquery.min.js') {
-    var string = fs.readFileSync('./src/js/jquery.min.js')
+    var string = fs.readFileSync('./lib/js/jquery.min.js')
     response.setHeader('Content-Type', 'application/javascript')
     response.end(string)
   } else if (path === '/lib/js/main.js') {
-    var string = fs.readFileSync('./src/js/main.js')
+    var string = fs.readFileSync('./lib/js/main.js')
     response.setHeader('Content-Type', 'application/javascript')
     response.end(string)
   } else if (path === '/lib/js/select-jquery.js') {
