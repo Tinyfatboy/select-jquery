@@ -7,18 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SignUp and Login</title>
 
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="build/main.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
     <div class="wrapper">
         <div class="functionArea">
-            <ul class="nav nav-pills">
-                <li><a href="#signUp" data-toggle="tab">写入</a></li>
-                <li><a href="#email" data-toggle="tab">Email</a></li>
-                <li class="active"><a href="#login" data-toggle="tab">读取</a></li>
-            </ul>
             <div class="tab-content">
                 <img src="img/22.jpg" alt="" class="signLogo">
                 <div class="signUp tab-pane fade" id="signUp">
@@ -35,34 +29,6 @@
                         </div>
                     </form>
                 </div>
-                <div class="email tab-pane fade" id="email">
-                    <div class="Slogen">从数据库查找Email</div>
-                    <span class="error"></span>
-                    <form name="email" action="/email" method="post">
-                        <div>
-                            <label>
-                                <input type="text" disabled="disabled" name="findemail" placeholder="Find Email">
-                            </label>
-                        </div>
-                        <div class="buttonEmail">
-                            <input type="submit" value="Find Email">
-                        </div>
-                    </form>
-                </div>
-                <div class="login tab-pane fade in active" id="login">
-                    <div class="Slogen">欢迎读取数据库</div>
-                    <span class="error loginError"></span>
-                    <form name="login" action="/login" method="post">
-                        <div>
-                            <label>
-                                <input type="text" name="searchdata" placeholder="Search" maxlength="30">
-                            </label>
-                        </div>
-                        <div class="buttonLogin">
-                            <input type="submit" value="Search">
-                        </div>
-                    </form>
-                </div>
             </div>
         </div>
         <div class="slide">
@@ -70,7 +36,6 @@
     </div>
 
     <script src="JS/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="JS/main.js"></script>
 </body>
 
