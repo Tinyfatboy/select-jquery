@@ -12,9 +12,7 @@ window.jquerySelect = function (arrayList) {
         var $li = $('<li><span>' + elem + '</span></li>')
         $li.appendTo($ul)
     })
-
-    $select.off()
-    $input.off()
+    unbindEvent()
 
     $select.on('click', 'ul', function (e) {
         var elem = e.target
@@ -96,5 +94,15 @@ window.jquerySelect = function (arrayList) {
                 resolve(result)
             }, (Math.random() * 200 + 100))
         })
+    }
+
+    function unbindEvent(){
+        var objEvt = $._data($select[0], 'events')
+        if (objEvt && objEvt['click']) {
+            $select.off()
+            $input.off()
+        } else {
+            return
+        }
     }
 }
